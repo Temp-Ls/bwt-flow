@@ -2,95 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* BWT Compression Tool Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 220 15% 97%;
+    --foreground: 220 15% 15%;
 
+    /* Algorithm visualization colors */
+    --primary: 220 91% 25%;        /* Deep blue for primary actions */
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 220 91% 35%;   /* Lighter blue for effects */
+
+    /* Data transformation colors */
+    --secondary: 145 75% 35%;      /* Forest green for compression */
+    --secondary-foreground: 0 0% 98%;
+    --secondary-glow: 145 75% 45%;
+
+    /* Transform accent colors */
+    --accent: 265 85% 58%;         /* Purple for transformations */
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 265 85% 68%;
+
+    /* UI elements */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 220 15% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Status colors */
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 15% 45%;
+    --border: 220 15% 88%;
+    --input: 220 15% 92%;
+    --ring: 220 91% 25%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Algorithm step colors */
+    --step-bwt: 35 91% 55%;        /* Orange for BWT */
+    --step-mtf: 195 91% 55%;       /* Cyan for MTF */
+    --step-rle: 285 91% 55%;       /* Magenta for RLE */
+    --step-huffman: 125 91% 45%;   /* Green for Huffman */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Destructive */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-data: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-transform: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--step-bwt)));
 
-    --radius: 0.5rem;
+    /* Shadows and effects */
+    --shadow-algorithm: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-data: 0 4px 20px -5px hsl(var(--secondary) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
 
-    --sidebar-background: 0 0% 98%;
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-data: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode colors */
+    --background: 220 15% 8%;
+    --foreground: 220 15% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Algorithm visualization colors (dark) */
+    --primary: 220 91% 65%;
+    --primary-foreground: 220 15% 8%;
+    --primary-glow: 220 91% 75%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Data transformation colors (dark) */
+    --secondary: 145 75% 55%;
+    --secondary-foreground: 220 15% 8%;
+    --secondary-glow: 145 75% 65%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Transform accent colors (dark) */
+    --accent: 265 85% 68%;
+    --accent-foreground: 220 15% 8%;
+    --accent-glow: 265 85% 78%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* UI elements (dark) */
+    --card: 220 15% 12%;
+    --card-foreground: 220 15% 92%;
+    --popover: 220 15% 12%;
+    --popover-foreground: 220 15% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Status colors (dark) */
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 15% 65%;
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 220 91% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Algorithm step colors (dark) */
+    --step-bwt: 35 91% 65%;
+    --step-mtf: 195 91% 65%;
+    --step-rle: 285 91% 65%;
+    --step-huffman: 125 91% 55%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive (dark) */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 220 15% 92%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar colors (dark) */
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 220 91% 65%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 220 91% 65%;
+
+    /* Update gradients and shadows for dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-data: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--accent)));
+    --gradient-transform: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--step-bwt)));
+    --shadow-algorithm: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    --shadow-data: 0 4px 20px -5px hsl(var(--secondary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.5);
   }
 }
 
@@ -101,5 +134,50 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+
+  /* Algorithm visualization specific styles */
+  .shadow-algorithm {
+    box-shadow: var(--shadow-algorithm);
+  }
+
+  .shadow-data {
+    box-shadow: var(--shadow-data);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Smooth transitions for data transformations */
+  .transition-data {
+    transition: var(--transition-data);
+  }
+
+  /* Code block styling */
+  code {
+    @apply bg-muted px-1 py-0.5 rounded text-sm font-mono;
+  }
+  
+  pre code {
+    @apply bg-transparent p-0;
   }
 }
